@@ -1,6 +1,7 @@
 :root {
   --main-font: "Roboto", sans-serif;
   --logo-font: "Raleway", sans-serif;
+  --icon-color: #afb1b8;
   --accent-color: #2196f3;
   --title-color: #212121;
   --text-dark-color: #757575;
@@ -12,8 +13,11 @@
   --header-border-color: #ececec;
   --portfolio-border-color: #eee;
   --footer-contact-color: rgba(255, 255, 255, 0.6);
+  --footer-social-color: rgba(255, 255, 255, 0.1);
 }
+
 /*========= COMPONENTS =========*/
+
 *,
 *::before,
 *::after {
@@ -80,7 +84,6 @@ img {
   color: var(--title-color);
 }
 
-.hero,
 .footer {
   background: var(--background-dark-color);
 }
@@ -144,7 +147,20 @@ img {
 }
 
 .header-contact-link {
+  display: flex;
+  align-items: center;
   color: var(--text-dark-color);
+}
+
+.header-contact-link .header-contact-svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  fill: var(--text-dark-color);
+}
+
+.header-contact-link:hover .header-contact-svg {
+  fill: var(--accent-color);
 }
 
 .nav-list-link:hover,
@@ -159,10 +175,15 @@ img {
 }
 
 /*========= HERO =========*/
+
 .hero {
   padding: 200px 0;
   margin: 0 auto;
-  background: var(--background-dark-color);
+  background-image: linear-gradient(
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url("../img/hero/hero-background.jpg");
 }
 
 .hero .container {
@@ -267,27 +288,8 @@ img {
   justify-content: space-between;
 }
 
-.team-list-name {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.186;
-  text-align: center;
-  letter-spacing: 0.03em;
-  color: var(--title-color);
-}
-
-.team-list-position {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.186;
-  text-align: center;
-  letter-spacing: 0.03em;
-  color: var(--text-dark-color);
-}
-
 .team-list-item {
   width: 270px;
-  height: 368px;
   padding-bottom: 30px;
   background: var(--logo-light-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -307,6 +309,80 @@ img {
 
 .team-list-name {
   margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.186;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--title-color);
+}
+
+.team-list-position {
+  margin-bottom: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.186;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--text-dark-color);
+}
+
+.social-list {
+  display: flex;
+  justify-content: space-between;
+  width: 206px;
+  margin: 0 auto;
+}
+
+.social-list-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--logo-light-color);
+}
+
+.social-link-svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--icon-color);
+}
+
+.social-list-link:hover {
+  background-color: var(--accent-color);
+}
+
+.social-list-link:hover .social-link-svg {
+  fill: var(--logo-light-color);
+}
+
+/*========= CUSTOMERS =========*/
+
+.customers-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.customers-list:not(:last-child) {
+  margin-right: 30px;
+}
+
+.customers-svg {
+  width: 170px;
+  height: 90px;
+  fill: var(--icon-color);
+  border: 1px solid;
+  border-color: var(--icon-color);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.customers-list-link:hover .customers-svg {
+  fill: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 /*========= FOOTER =========*/
@@ -315,15 +391,15 @@ img {
   padding: 60px 0;
 }
 
-.footer .container {
+.footer-block {
   display: flex;
-  flex-direction: column;
 }
 
 .footer .address-list {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  margin-right: 70px;
 }
 
 .footer .address-list-item:not(:last-child) {
@@ -344,6 +420,35 @@ img {
 
 .footer-contact-link {
   color: var(--footer-contact-color);
+}
+
+.footer-social-title {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.33;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-light-color);
+}
+
+.social-block {
+}
+
+.footer .social-list-link {
+  background-color: var(--footer-social-color);
+}
+
+.footer .social-list-link:hover {
+  background-color: var(--accent-color);
+}
+
+.footer .social-list-link .social-link-svg {
+  fill: var(--logo-light-color);
+}
+
+.footer .social-list-link:hover .social-link-svg {
+  fill: var(--logo-light-color);
 }
 
 /*========= PORTFOLIO =========*/
@@ -369,7 +474,7 @@ img {
   letter-spacing: 0.03em;
   color: var(--title-color);
   text-align: center;
-  background: #f5f4fa;
+  background: var(--background-light-color);
   border-style: none;
   border-radius: 4px;
 }
